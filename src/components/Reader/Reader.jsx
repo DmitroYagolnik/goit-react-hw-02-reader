@@ -53,7 +53,7 @@ class Reader extends Component {
           activePublicationsIndex={activePublicationsIndex}
           itemsLength={itemsLength}
         />
-        {itemsLength > 0 && (
+        {itemsLength && (
           <Publication
             activePublicationsTitle={items[activePublicationsIndex].title}
             activePublicationsText={items[activePublicationsIndex].text}
