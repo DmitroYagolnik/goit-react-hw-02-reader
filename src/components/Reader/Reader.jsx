@@ -24,15 +24,13 @@ class Reader extends Component {
     activePublicationsIndex: 0,
   };
 
-  handleIncrement = () => {
+  handleControlsBtn = event => {
+    const { name } = event.target;
     this.setState(prevState => ({
-      activePublicationsIndex: prevState.activePublicationsIndex + 1,
-    }));
-  };
-
-  handleDecrement = () => {
-    this.setState(prevState => ({
-      activePublicationsIndex: prevState.activePublicationsIndex - 1,
+      activePublicationsIndex:
+        name === 'decrementBtn'
+          ? prevState.activePublicationsIndex - 1
+          : prevState.activePublicationsIndex + 1,
     }));
   };
 
@@ -45,8 +43,7 @@ class Reader extends Component {
         <Controls
           activePublicationsIndex={activePublicationsIndex}
           itemsLength={itemsLength}
-          handleIncrement={this.handleIncrement}
-          handleDecrement={this.handleDecrement}
+          handleControlsBtn={this.handleControlsBtn}
         />
 
         <Counter

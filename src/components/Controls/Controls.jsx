@@ -5,21 +5,22 @@ import styles from './Controls.module.css';
 const Controls = ({
   activePublicationsIndex,
   itemsLength,
-  handleIncrement,
-  handleDecrement,
+  handleControlsBtn,
 }) => (
   <section className={styles.controls}>
     <button
       type="button"
-      onClick={handleDecrement}
+      name="decrementBtn"
+      onClick={handleControlsBtn}
       className={styles.button}
-      disabled={activePublicationsIndex === 0}
+      disabled={!activePublicationsIndex}
     >
       Назад
     </button>
     <button
       type="button"
-      onClick={handleIncrement}
+      name="incrementBtn"
+      onClick={handleControlsBtn}
       className={styles.button}
       disabled={activePublicationsIndex + 1 === itemsLength}
     >
@@ -31,7 +32,6 @@ const Controls = ({
 Controls.propTypes = {
   activePublicationsIndex: PropTypes.number.isRequired,
   itemsLength: PropTypes.number.isRequired,
-  handleIncrement: PropTypes.func.isRequired,
-  handleDecrement: PropTypes.func.isRequired,
+  handleControlsBtn: PropTypes.func.isRequired,
 };
 export default Controls;
